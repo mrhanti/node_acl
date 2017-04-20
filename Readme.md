@@ -1,4 +1,4 @@
-#NODE ACL - Access Control Lists for Node
+# NODE ACL - Access Control Lists for Node
 
 This module provides a minimalistic ACL implementation inspired by Zend_ACL.
 
@@ -14,13 +14,13 @@ A Redis, MongoDB and In-Memory based backends are provided built-in in the modul
 
 Follow [manast](http://twitter.com/manast) for news and updates regarding this library.
 
-##Status
+## Status
 
 [![BuildStatus](https://secure.travis-ci.org/OptimalBits/node_acl.png?branch=master)](http://travis-ci.org/OptimalBits/node_acl)
 [![Dependency Status](https://david-dm.org/OptimalBits/node_acl.svg)](https://david-dm.org/OptimalBits/node_acl)
 [![devDependency Status](https://david-dm.org/OptimalBits/node_acl/dev-status.svg)](https://david-dm.org/OptimalBits/node_acl#info=devDependencies)
 
-##Features
+## Features
 
 - Users
 - Roles
@@ -29,7 +29,7 @@ Follow [manast](http://twitter.com/manast) for news and updates regarding this l
 - Express middleware for protecting resources.
 - Robust implementation with good unit test coverage.
 
-##Installation
+## Installation
 
 Using npm:
 
@@ -37,7 +37,7 @@ Using npm:
 npm install acl
 ```
 
-##Documentation
+## Documentation
 
 * [addUserRoles](#addUserRoles)
 * [removeUserRoles](#removeUserRoles)
@@ -57,7 +57,7 @@ npm install acl
 * [middleware](#middleware)
 * [backend](#backend)
 
-##Examples
+## Examples
 
 Create your acl module by requiring it and instantiating it with a valid backend instance:
 
@@ -205,7 +205,7 @@ app.put('/blogs/:id/comments/:commentId', acl.middleware(3, 'joed', 'post'), fun
 ## Methods
 
 <a name="addUserRoles"/>
-### addUserRoles( userId, roles, function(err) )
+*addUserRoles( userId, roles, function(err) )*
 
 Adds roles to a given user id.
 
@@ -220,7 +220,7 @@ __Arguments__
 ---------------------------------------
 
 <a name="removeUserRoles"/>
-### removeUserRoles( userId, roles, function(err) )
+*removeUserRoles( userId, roles, function(err) )*
 
 Remove roles from a given user.
 
@@ -235,7 +235,7 @@ __Arguments__
 ---------------------------------------
 
 <a name="userRoles" />
-### userRoles( userId, function(err, roles) )
+*userRoles( userId, function(err, roles) )*
 
 Return all the roles from a given user.
 
@@ -249,7 +249,7 @@ __Arguments__
 ---------------------------------------
 
 <a name="roleUsers" />
-### roleUsers( rolename, function(err, users) )
+*roleUsers( rolename, function(err, users) )*
 
 Return all users who has a given role.
 
@@ -263,7 +263,7 @@ __Arguments__
 ---------------------------------------
 
 <a name="hasRole" />
-### hasRole( userId, rolename, function(err, hasRole) )
+*hasRole( userId, rolename, function(err, hasRole) )*
 
 Return boolean whether user has the role
 
@@ -278,7 +278,7 @@ __Arguments__
 ---------------------------------------
 
 <a name="addRoleParents" />
-### addRoleParents( role, parents, function(err) )
+*addRoleParents( role, parents, function(err) )*
 
 Adds a parent or parent list to role.
 
@@ -293,7 +293,7 @@ __Arguments__
 ---------------------------------------
 
 <a name="removeRoleParents" />
-### removeRoleParents( role, parents, function(err) )
+*removeRoleParents( role, parents, function(err) )*
 
 Removes a parent or parent list from role.
 
@@ -310,7 +310,7 @@ __Arguments__
 ---------------------------------------
 
 <a name="removeRole" />
-### removeRole( role, function(err) )
+*removeRole( role, function(err) )*
 
 Removes a role from the system.
 
@@ -324,7 +324,7 @@ __Arguments__
 ---------------------------------------
 
 <a name="removeResource" />
-### removeResource( resource, function(err) )
+*removeResource( resource, function(err) )*
 
 Removes a resource from the system
 
@@ -338,7 +338,7 @@ __Arguments__
 ---------------------------------------
 
 <a name="allow" />
-### allow( roles, resources, permissions, function(err) )
+*allow( roles, resources, permissions, function(err) )*
 
 Adds the given permissions to the given roles over the given resources.
 
@@ -351,7 +351,7 @@ __Arguments__
     callback    {Function} Callback called when finished.
 ```
 
-### allow( permissionsArray, function(err) )
+*allow( permissionsArray, function(err) )*
 
 __Arguments__
 
@@ -365,7 +365,7 @@ __Arguments__
 ---------------------------------------
 
 <a name="removeAllow" />
-###  removeAllow( role, resources, permissions, function(err) )
+* removeAllow( role, resources, permissions, function(err) )*
 
 Remove permissions from the given roles owned by the given role.
 
@@ -383,7 +383,7 @@ __Arguments__
 ---------------------------------------
 
 <a name="allowedPermissions" />
-### allowedPermissions( userId, resources, function(err, obj) )
+*allowedPermissions( userId, resources, function(err, obj) )*
 
 Returns all the allowable permissions a given user have to
 access the given resources.
@@ -402,7 +402,7 @@ __Arguments__
 ---------------------------------------
 
 <a name="isAllowed" />
-### isAllowed( userId, resource, permissions, function(err, allowed) )
+*isAllowed( userId, resource, permissions, function(err, allowed) )*
 
 Checks if the given user is allowed to access the resource for the given
 permissions (note: it must fulfill all the permissions).
@@ -418,7 +418,7 @@ __Arguments__
 
 ---------------------------------------
 <a name="areAnyRolesAllowed" />
-### areAnyRolesAllowed( roles, resource, permissions, function(err, allowed) )
+*areAnyRolesAllowed( roles, resource, permissions, function(err, allowed) )*
 
 Returns true if any of the given roles have the right permissions.
 
@@ -433,7 +433,7 @@ __Arguments__
 
 ---------------------------------------
 <a name="whatResources" />
-### whatResources(role, function(err, {resourceName: [permissions]})
+*whatResources(role, function(err, {resourceName: [permissions]})*
 
 Returns what resources a given role has permissions over.
 
@@ -459,7 +459,7 @@ __Arguments__
 ---------------------------------------
 
 <a name="middleware" />
-### middleware( [numPathComponents, userId, permissions] )
+*middleware( [numPathComponents, userId, permissions] )*
 
 Middleware for express.
 
@@ -476,7 +476,7 @@ __Arguments__
 ---------------------------------------
 
 <a name="backend" />
-### backend( db, [prefix] )
+*backend( db, [prefix] )*
 
 Creates a backend instance. All backends except Memory require driver or database instance. `useSingle` is only applicable to the MongoDB backend.
 
